@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket Client Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        height: 100vh;
+      }
+
+      .container {
+        display: flex;
+        gap: 20px;
+        height: 100%;
+      }
+
+      .left-panel {
+        flex: 1;
+        max-width: 300px;
+      }
+
+      .right-panel {
+        flex: 2;
+      }
+
+      #messages {
+        /* margin-top: 20px; */
+        padding: 10px;
+        border: 1px solid #ccc;
+        height: 80%;
+        overflow-y: scroll;
+        background-color: #f9f9f9;
+      }
+
+      input[type="text"],
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      .message {
+        margin-bottom: 10px;
+      }
+
+      .message.sent {
+        color: blue;
+      }
+
+      .message.received {
+        color: green;
+      }
+
+      .message.info {
+        color: #6b11e8;
+      }
+
+      .message.error {
+        color: red;
+      }
+
+      .timestamp {
+        font-size: 0.8em;
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>WebSocket Client Test</h1>
+
+    <div class="container">
+      <!-- Left Panel -->
+      <div class="left-panel">
+        <label for="ipAddress">Server IP Address:</label>
+        <input type="text" id="ipAddress" value="ws://192.168.4.1:8765" />
+
+        <button id="connectBtn">Connect</button>
+        <button id="disconnectBtn" disabled>Disconnect</button>
+
+        <label for="message">Message:</label>
+        <input type="text" id="message" placeholder="Enter message" />
+        <button id="sendBtn" disabled>Send</button>
+
+        <label for="binaryArray">Binary Array:</label>
+        <input type="text" id="binaryArray" placeholder="Enter binary array" />
+        <button id="sendBinaryBtn" disabled>Send Binary</button>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="right-panel">
+        <label>Messages:</label>
+        <div id="messages">
+          <p>Messages will appear here...</p>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="websockets_test.js"></script>
+  </body>
+</html>
